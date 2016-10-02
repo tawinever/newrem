@@ -20,7 +20,7 @@ class PriceSectionAsset extends AssetBundle
         'app\assets\LandingAsset',
     ];
     public $publishOptions = [
-        // 'forceCopy'=>true,
+//         'forceCopy'=>true,
     ];
 
     public function init()

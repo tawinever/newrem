@@ -18,7 +18,7 @@ class LandingAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/style4.css',
+        'css/style5.css',
     ];
     public $js = [
     ];

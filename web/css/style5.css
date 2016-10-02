@@ -608,7 +608,7 @@ footer .second {
 }
 
 .section-price table tr:nth-child(2n+1) {
-    background-color: rgba(30, 57, 72, 0.25);;
+    background-color: rgba(30, 57, 72, 0.25);
 }
 
 .section-price table tr:first-child {
@@ -619,7 +619,7 @@ footer .second {
 .section-price table td {
     text-align: center;
     vertical-align: middle;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -o-transition: all 0.3s ease-out 0s;
@@ -631,14 +631,38 @@ footer .second {
     background-color: rgba(30, 57, 72, 0.62);
 }
 
+@keyframes changedFontWhite {
+    50%  {  color: #ffffff;}
+}
+
+@keyframes changedFontGrey {
+    50%  {  color: rgb(199, 206, 210); }
+}
+
+.section-price table tr:nth-child(2n) td.changed {
+    animation-name: changedFontWhite;
+    animation-duration: 0.8s;
+}
+
+.section-price table tr:nth-child(2n+1) td.changed {
+    animation-name: changedFontGrey;
+    animation-duration: 0.8s;
+}
+
 .section-price table th {
     padding: 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.section-price table th:first-child, .section-price table td:first-child, .section-price table th:last-child, .section-price table td:last-child {
+.section-price table th:first-child, .section-price table td:first-child{
     width: 200px;
     text-align: left;
+}
+
+.section-price .ctr-btn {
+    border:none;
+    font-size:18px;
+    padding: 5px;
 }
 
 /*end Section Price*/

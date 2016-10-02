@@ -14,7 +14,8 @@
                 <? foreach ($devices as $device): ?>
                     <th><h3><?=$category->title.' '.$device->title ?></h3></th>
                 <?endforeach;?>
-                <th>Время ремонта</th>
+                <th width="300px">Время ремонта</th>
+                <th >Заказать <br> Ремонт</th>
             </tr>
             <?foreach ($repairs as $repair ): ?>
                 <tr>
@@ -28,6 +29,7 @@
                         <?endif;?>
                     <?endforeach;?>
                     <td data-role="info">Наведите на желаемую цену</td>
+                    <td class="ta-r"><button class="popup-open ctr-btn ctr-green" data-order-info="<?=$category->title.' - '.$repair->title?>" data-info="<?=$mappedPrices[$repair->id.'-'.$device->id]->info?>"> Заказать</button></td>
                 </tr>    
             <?endforeach; ?>
 
