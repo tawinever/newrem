@@ -1,0 +1,24 @@
+User-agent: Yandex
+Allow: /
+Allow: /calc
+Disallow: /thanks
+Disallow: /admin
+Disallow: /admin/default/login
+Disallow: /calc/
+Sitemap: http://remonteka.kz/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Allow: /calc
+Disallow: /thanks
+Disallow: /admin
+Disallow: /admin/default/login
+Sitemap: http://remonteka.kz/sitemap.xml
+
+User-agent: *
+Allow: /
+Disallow: /thanks
+Disallow: /admin
+Disallow: /admin/default/login
+Sitemap: http://remonteka.kz/sitemap.xml
+

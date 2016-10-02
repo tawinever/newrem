@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+  <url>
+    <loc>http://remonteka.kz/</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/calc</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/iphone-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/telefon-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/ipad-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/notebook-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/macbook-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/express-astana</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/contact</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>http://remonteka.kz/site.kml</loc>
+    <lastmod>2016-09-03T16:00:02+06:00</lastmod>
+  </url>
+</urlset>
