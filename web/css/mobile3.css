@@ -383,7 +383,7 @@ h2 {
 }
 
 .calc-item-container {
-    margin: 100px auto;
+    margin: 30px auto;
     text-align: center;
 }
 
@@ -392,7 +392,7 @@ h2 {
     cursor: pointer;
     display: inline-block;
     font-size: 30px;
-    height: 100px;
+    height: 75px;
     margin-left: 15px;
     margin-bottom: 15px;
     position: relative;
@@ -471,7 +471,7 @@ h2 {
 }
 
 .calc-container h2 {
-    margin-top: 15vh;
+    margin-top: 5vh;
     font-size: 42px;
     text-align: center;
 }
