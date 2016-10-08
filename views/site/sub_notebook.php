@@ -7,6 +7,7 @@
  */
 use app\components\sections\feedSection\FeedSection;
 use app\components\sections\lastSection\LastSection;
+use app\components\sections\longreadSection\LongreadSection;
 use app\components\sections\mainSection\MainSection;
 use app\components\sections\mapSection\MapSection;
 use app\components\sections\pros2Section\Pros2Section;
@@ -21,7 +22,8 @@ $this->registerMetaTag([
 
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'notebook']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Ноутбук'])?>
+<?= LongreadSection::widget(['page' => 'notebook']) ?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Ноутбук','page' => 'notebook'])?>
 <?= ProsSection::widget(['page' => 'notebook']) ?>
 <?= Pros2Section::widget(['page' => 'notebook']) ?>
 <?= FeedSection::widget(['page' => 'macbook']) ?>

@@ -21,7 +21,7 @@ $this->registerMetaTag([
 
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'android']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Телефон'])?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Телефон', 'page' => 'android'])?>
 <?= ProsSection::widget() ?>
 <?= Pros2Section::widget(['page' => 'android']) ?>
 <?= FeedSection::widget(['page' => 'android']) ?>

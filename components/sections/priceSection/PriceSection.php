@@ -19,6 +19,7 @@ use yii\helpers\ArrayHelper;
 class PriceSection extends Widget
 {
     public $category_title = 'Iphone';
+    public $page= 'home';
     private $category;
 
     public function run()
@@ -49,12 +50,15 @@ class PriceSection extends Widget
                 'devices' => $devices,
                 'category' => $this->category,
                 'mappedPrices' => $mappedPrices,
+                'page' => $this->page,
             ]);
         }
         return $this->render('mobile',['repairs' => $repairs, 'prices' => $prices,
             'devices' => $devices,
             'category' => $this->category,
             'mappedPrices' => $mappedPrices,
+            'page' => $this->page,
+
         ]);
     }
 

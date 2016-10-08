@@ -21,7 +21,7 @@ $this->registerMetaTag([
 
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'express']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Express'])?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Express','page' => 'express'])?>
 <?= ProsSection::widget(['page' => 'express']) ?>
 <?= Pros2Section::widget(['page' => 'express']) ?>
 <?= FeedSection::widget() ?>

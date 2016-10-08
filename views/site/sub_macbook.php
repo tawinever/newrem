@@ -23,7 +23,7 @@ $this->registerMetaTag([
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'macbook']) ?>
 <?= LongreadSection::widget(['page' => 'macbook']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Mac'])?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'Mac','page' => 'notebook'])?>
 <?= ProsSection::widget(['page' => 'macbook']) ?>
 <?= Pros2Section::widget(['page' => 'macbook']) ?>
 <?= FeedSection::widget(['page' => 'macbook']) ?>

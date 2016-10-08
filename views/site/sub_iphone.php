@@ -22,7 +22,7 @@ $this->registerMetaTag([
 
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'iphone']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget()?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['page' => 'iphone'])?>
 <?= ProsSection::widget(['page' => 'iphone']) ?>
 <?= Pros2Section::widget(['page' => 'iphone']) ?>
 <?= FeedSection::widget(['page' => 'iphone']) ?>

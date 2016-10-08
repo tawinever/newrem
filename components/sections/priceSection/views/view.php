@@ -4,10 +4,29 @@
  * User: Rauan
  * Date: 24.06.2016
  * Time: 22:33
- */ ?>
+ */
+
+    use yii\helpers\Url;
+
+    $calcUrl = "";
+    if($page == 'home')
+        $calcUrl = Url::toRoute('site/calc');
+    if($page == 'iphone')
+        $calcUrl = Url::toRoute('calc/'.'iPhone');
+    if($page == 'android')
+        $calcUrl = Url::toRoute('calc/'.'Телефон');
+    if($page == 'express')
+        $calcUrl = Url::toRoute('calc/'.'Express');
+    if($page == 'ipad')
+        $calcUrl = Url::toRoute('calc/'.'iPad');
+    if($page == 'macbook')
+        $calcUrl = Url::toRoute('calc/'.'Mac');
+    if($page == 'notebook')
+        $calcUrl = Url::toRoute('calc/'.'Ноутбук');
+?>
 <section class="section-price">
     <div class="wrapper">
-        <h2 class="ta-c title">Цены</h2>
+        <a href="<?= $calcUrl ?>"><h2 class="ta-c title">Цены</h2></a>
         <table>
             <tr>
                 <th>Тип ремонта</th>

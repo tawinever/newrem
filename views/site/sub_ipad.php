@@ -21,7 +21,7 @@ $this->registerMetaTag([
 
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'ipad']) ?>
-<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'ipad'])?>
+<?= \app\components\sections\priceSection\PriceSection::widget(['category_title' => 'ipad','page' => 'ipad'])?>
 <?= ProsSection::widget() ?>
 <?= Pros2Section::widget(['page' => 'ipad']) ?>
 <?= FeedSection::widget() ?>

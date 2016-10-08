@@ -19,6 +19,9 @@ class LongreadSection extends Widget
         parent::run();
         if($this->page == 'macbook') 
             return $this->render('macbook',['page' => $this->page]);
+        if($this->page == 'notebook')
+            return $this->render('notebook',['page' => $this->page]);
+
         return  $this->render('view',['page' => $this->page]);
     }
 }
