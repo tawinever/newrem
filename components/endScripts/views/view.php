@@ -17,7 +17,9 @@
                     id:38563210,
                     clickmap:true,
                     trackLinks:true,
-                    accurateTrackBounce:true
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
                 });
             } catch(e) { }
         });
