@@ -6,7 +6,7 @@
  * Time: 22:43
  */
 use yii\helpers\Url;
-$calcUrl = "";
+$calcUrl = Url::toRoute('site/calc');
 if($page == 'home')
     $calcUrl = Url::toRoute('site/calc');
 if($page == 'iphone')
@@ -25,7 +25,7 @@ if($page == 'notebook')
 <section class = "section-last">
     <h2 class="ta-c">
         Выложите фото с Remonteka в <a href="https://www.instagram.com/remonteka.kz/"><u>инстаграм</u></a> и получите
-        <?if($page = 'macbook'):?>
+        <?if($page == 'macbook'):?>
         5% скидку
         <?else:?>
         защитное стекло бесплатно

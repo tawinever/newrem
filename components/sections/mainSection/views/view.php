@@ -7,7 +7,7 @@
  */
 use yii\helpers\Url;
 
-$calcUrl = "";
+$calcUrl = Url::toRoute('site/calc');
 if($page == 'home')
     $calcUrl = Url::toRoute('site/calc');
 if($page == 'iphone')

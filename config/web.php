@@ -69,6 +69,7 @@ $config = [
                 'notebook-astana' => 'site/notebook',
                 'macbook-astana' => 'site/macbook',
                 'express-astana' => 'site/express',
+                'zamena-stekla' => 'site/display',
 
                 'calc/' => 'site/calc',
                 'calc/<category:\w+>/' => 'site/calc',

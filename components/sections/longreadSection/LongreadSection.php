@@ -21,6 +21,8 @@ class LongreadSection extends Widget
             return $this->render('macbook',['page' => $this->page]);
         if($this->page == 'notebook')
             return $this->render('notebook',['page' => $this->page]);
+        if($this->page == 'display')
+            return $this->render('display',['page' => $this->page]);
 
         return  $this->render('view',['page' => $this->page]);
     }

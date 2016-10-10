@@ -24,6 +24,9 @@ class ProsSection extends Widget
         $mapModels = ArrayHelper::index($models,'position');
         if(\Yii::getAlias('@device') != 'mobile')
         {
+            if($this->page== "display"){
+                return $this->render('display', ['copy' => $mapModels]);
+            }
             if($this->page== "express"){
                 return $this->render('express', ['copy' => $mapModels]);
             }

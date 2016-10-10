@@ -22,7 +22,7 @@
     if($page == 'macbook')
         $calcUrl = Url::toRoute('calc/'.'Mac');
     if($page == 'notebook')
-        $calcUrl = Url::toRoute('calc/'.'Ноутбук');
+        $calcUrl = Url::toRoute('calc/w'.'Ноутбук');
 ?>
 <section class="section-price">
     <div class="wrapper">

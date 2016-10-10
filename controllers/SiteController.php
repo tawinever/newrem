@@ -75,6 +75,11 @@ class SiteController extends Controller implements ViewContextInterface
         return $this->render('sub_express');
     }
 
+    public function actionDisplay()
+    {
+        return  $this->render('sub_display');
+    }
+
     public function actionContact()
     {
         return $this->render('contact');

@@ -24,6 +24,9 @@ class Pros2Section extends Widget
         {
             $models = Copyright::find()->where(['page' => $this->page, 'section' => 'pros2Section'])->all();
             $mapModels = ArrayHelper::index($models,'position');
+            if($this->page == "display"){
+                return $this->render('display', ['copy' => $mapModels]);
+            }
             if($this->page == "express"){
                 return $this->render('express', ['copy' => $mapModels]);
             }
