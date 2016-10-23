@@ -13,10 +13,10 @@ use app\components\sections\mapSection\MapSection;
 use app\components\sections\pros2Section\Pros2Section;
 use app\components\sections\prosSection\ProsSection;
 
-$this->title = 'Замена стекла в Астане';
+$this->title = 'Замена стекла на iPhone в Астане';
 $this->registerMetaTag([
     'name' => 'description',
-    'content' => 'Срочный ремонт Айфонов в Астане. 90% ремонтов выполняется на ваших глазах в течение 30 минут. Бесплатная диагностика. Гарантия до 3-х месяцев. Замена стекла от 7000тенге, замена дисплея от 8000 тенге. Работаем с 10:00 до 20:0a0 без выходных.'
+    'content' => 'Замена стекла на iPhone от 6000 тенге. Гарантия до 12-ти месяцев. Работаем с 10:00 до 20:00 без выходных и обеда. Астана, Левый берег напротив ТЦ "Керуен"',
 ]);
 ?>
 

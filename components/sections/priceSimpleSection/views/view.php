@@ -22,17 +22,17 @@
                 <th >Заказать</th>
             </tr>
             <?
+            $prices = \app\helpers\Comparator::sortSimplePrice($prices);
             foreach ($prices as $price ): ?>
-                <tr>
-                    <?if($price->device->category->title !== 'Телефон'):?>
+                <?if($price->device->category->title !== 'Телефон'):?>
+                    <tr>
                         <td><h3><?=$price->device->category->title.' - '.$price->device->title?></h3></td>
-                    <?else:?>
-                        <td><h3><?=$price->device->title?></h3></td>
-                    <?endif;?>
-                    <td><?= $price->price ?> тг</td>
-                    <td><?= $price->info ?></td>
-                    <td class="ta-r"><button class="popup-open ctr-btn ctr-green" data-order-info="<?=$price->device->category->title.' - '.$price->device->title.' - Замена стекло'?>"> Заказать</button></td>
-                </tr>    
+                        <td><?= $price->price ?> тг</td>
+                        <td><?= $price->info ?></td>
+                        <td class="ta-r"><button class="popup-open ctr-btn ctr-green" data-order-info="<?=$price->device->category->title.' - '.$price->device->title.' - Замена стекло'?>"> Заказать</button></td>
+                    </tr>
+                <?endif;?>
+
             <?endforeach; ?>
         </table>
     </div>

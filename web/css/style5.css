@@ -1120,11 +1120,21 @@ footer .second {
     font-size:24px;
     margin: 25px 0;
 }
-.section-longread p{
+.section-longread p, .section-longread ul{
     font-size: 18px;
     line-height: 1.5;
     text-indent: 20px;
     font-weight: 300;
+}
+.section-longread ul{
+    list-style-type: decimal;
+    text-indent: 0;
+    padding-left: 40px;
+
+}
+
+.section-longread span.fw-500{
+    font-weight: 500;
 }
 .section-longread a {
     color: #fa7167;
