@@ -224,6 +224,20 @@ a:hover {
 
 }
 
+.section-main .info-container .status span.gcw_title, div span.gcw_title {
+    background: transparent;
+    border: none;
+    box-shadow:none;
+    padding: 0;
+}
+div span.gcw_title:hover {
+    background-color: transparent;
+    color: #f97167 !important;
+}
+.gcw{
+    display: none !important;
+}
+
 .section-main .info-container .contacts {
     border-right: 2px solid  #fff;
     text-align: right;

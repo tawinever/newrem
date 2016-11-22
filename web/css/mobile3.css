@@ -849,3 +849,17 @@ footer .second {
     padding: 15px;
 }
 /* end of page order status*/
+
+div span.gcw_title {
+    background: transparent;
+    border: none;
+    box-shadow:none;
+    padding: 0;
+}
+div span.gcw_title:hover {
+    background-color: transparent;
+    color: #f97167 !important;
+}
+.gcw{
+    display: none !important;
+}

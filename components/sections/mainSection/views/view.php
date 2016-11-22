@@ -39,9 +39,9 @@ if($page == 'notebook')
         </div>
         <div class="info-container right">
             <div class="status">
-                <a href="<?= Url::toRoute('site/status'); ?>">
+                <span href="<?//= Url::toRoute('site/status'); ?>" class="gcw_title gcw_show_modal gcw_status_modal" data-id="gcw_status_modal">
                     Статус заказа
-                </a>
+                </span>
             </div>
             <div class="contacts">
                 <a href="tel:+77021236622" class="number">

@@ -62,3 +62,14 @@
                src="https://www.facebook.com/tr?id=291119364577301&ev=PageView&noscript=1"
     /></noscript>
 <!-- End Facebook Pixel Code -->
+<!--gincore-->
+<script>
+    (function () {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "//remonteka5.gincore.net/widget.php?ajax=&w=status&jquery="+("jQuery" in window?1:0);
+        document.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
+<!--end of gincore-->

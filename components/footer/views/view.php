@@ -24,7 +24,7 @@ use yii\helpers\Url; ?>
             <span><a href="<?= Url::toRoute('site/notebook'); ?>"><h3>Ремонт ноутбуков</h3></a></span>
             <span><a href="<?= Url::toRoute('site/macbook'); ?>"><h3>Ремонт Макбуков</h3></a></span>
             <span><a href="<?= Url::toRoute('site/express'); ?>"><h3>Ремонт на выезд</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/status'); ?>"><h3>Статус заказа</h3></a></span>
+            <span class="gcw_title gcw_show_modal gcw_status_modal" data-id="gcw_status_modal"><h3>Статус заказа</h3></span>
         </div>
         <div class="col flex-two">
             <span class="title"><a href="<?=Url::toRoute('site/contact')?>">Контакты</a></span>
