@@ -44,7 +44,7 @@ if($page == 'notebook')
                 </span>
             </div>
             <div class="contacts">
-                <a href="tel:+77021236622" class="number">
+                <a href="tel:+77471236622" class="number">
                     <i class="image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.731 455.731">
                             <g>
@@ -62,7 +62,7 @@ if($page == 'notebook')
                             </g>
                         </svg>
                     </i>
-                    +7 (702) 123 6622
+                    +7 (747) 123 6622
                 </a>
                 <br>
                 <a href="https://2gis.kz/astana/query/Remonteka/firm/70000001021677246?queryState=center%2F71.421929%2C51.125731%2Fzoom%2F16" class="address" target="_blank">

@@ -10,7 +10,7 @@ use yii\helpers\Url; ?>
     echo 'visible';
 } ?>">
     <div>
-        <a href="tel:+77021236622">
+        <a href="tel:+77471236622">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463.009 463.009" width="100%">
                 <g>
                     <path
