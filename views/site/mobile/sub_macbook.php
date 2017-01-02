@@ -12,7 +12,7 @@ use app\components\sections\mapSection\MapSection;
 use app\components\sections\pros2Section\Pros2Section;
 use app\components\sections\prosSection\ProsSection;
 
-$this->title = 'Ремонт Макбуков | Macbook в Астане';
+$this->title = 'Ремонт Макбуков в Астане | Ремонт Macbook в Астане';
 $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Качественный ремонт макбуков(Pro,Air) в Астане. Ремонт любой сложности(замена матрицы, ремонт платы). Гарантия до 3 месяцев. Бесплатная диагностика. . С 10:00 до 20:00 без выходных.'

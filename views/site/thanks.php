@@ -55,6 +55,15 @@ m183 -708 l0 -495 -625 0 -625 0 0 495 0 495 625 0 625 0 0 -495z"/>
             </g>
         </svg>
     </div>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?136"></script>
+    <h3 class="ta-c">
+        Подпишись и получи БЕСПЛАТНОЕ защитное стекло!
+    </h3>
+    <!-- VK Widget -->
+    <div id="vk_groups"></div>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 3, width: "500"}, 109776593);
+    </script>
 
 </div>
 

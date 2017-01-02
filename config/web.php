@@ -41,7 +41,7 @@ $config = [
                 'username' => 'robot@remonteka.kz',
                 'password' => 'rauan123',
                 'port' => '25',
-                'encryption' => 'tls',
+                //'encryption' => 'tls',
             ],
             'viewPath' => '@app/mail'
         ],

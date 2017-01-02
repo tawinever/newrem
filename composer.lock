@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a9f7c47d379e5549d6cbf759eab6ea22",
-    "content-hash": "8ec20b9ce9dd1a1176d12add0a44fe28",
+    "hash": "542a2b2573f37233580175bdb656a0ce",
+    "content-hash": "61f281547cb060edc41a9a5ba28f7e03",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -304,6 +304,49 @@
             "time": "2015-03-06 05:28:07"
         },
         {
+            "name": "cosenary/instagram",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cosenary/Instagram-PHP-API.git",
+                "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cosenary/Instagram-PHP-API/zipball/fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+                "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MetzWeb\\Instagram\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Metz",
+                    "email": "christian-metz1@gmx.net",
+                    "homepage": "http://metzweb.net"
+                }
+            ],
+            "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+            "homepage": "https://github.com/cosenary/Instagram-PHP-API",
+            "keywords": [
+                "api",
+                "instagram"
+            ],
+            "time": "2014-11-29 13:10:42"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.7.0",
             "source": {
@@ -448,6 +491,49 @@
                 "yii2"
             ],
             "time": "2016-05-07 19:45:52"
+        },
+        {
+            "name": "kmarenov/yii2-instagram-widget",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kmarenov/yii2-instagram-widget.git",
+                "reference": "fca020290da63088e807cf67270a7bf572d4a4de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kmarenov/yii2-instagram-widget/zipball/fca020290da63088e807cf67270a7bf572d4a4de",
+                "reference": "fca020290da63088e807cf67270a7bf572d4a4de",
+                "shasum": ""
+            },
+            "require": {
+                "cosenary/instagram": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kmarenov\\instagram\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Marenov",
+                    "email": "kmarenov@gmail.com"
+                }
+            ],
+            "description": "Allows you to show your Instagram Photos on your Website",
+            "keywords": [
+                "extension",
+                "instagram",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-12-07 21:13:05"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

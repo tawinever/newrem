@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "kartik-v/yii2-field-range": "*",
-        "alexandernst/yii2-device-detect": "0.0.11"
+        "alexandernst/yii2-device-detect": "0.0.11",
+        "kmarenov/yii2-instagram-widget": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

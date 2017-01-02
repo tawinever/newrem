@@ -951,7 +951,7 @@ footer .second {
 /*end calc price*/
 /*thank page*/
 .page-thank {
-    margin: 150px auto;
+    margin: 100px auto;
     max-width: 960px;
     color: #1e3948;
 }
@@ -964,6 +964,10 @@ footer .second {
 .page-thank .svg {
     margin: 30px auto;
     max-width: 400px;
+}
+
+.page-thank #vk_groups {
+    margin: 30px auto 0;
 }
 
 /*!thank page*/

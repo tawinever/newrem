@@ -12,7 +12,7 @@ use app\components\sections\mapSection\MapSection;
 use app\components\sections\pros2Section\Pros2Section;
 use app\components\sections\prosSection\ProsSection;
 
-$this->title = 'Ремонт Айфонов | iPhone на выезде в Астане';
+$this->title = 'Ремонт Айфонов на выезде в Астане | Ремонт iPhone на выезде в Астане';
 $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Выездной ремонт Айфонов за 20 мин при вас. Приедем и починим ваш iPhone в удобном для вас месте и время. Гарантия до 3-х месяцев. Работаем с 10:00 до 20:00 без выходных.'

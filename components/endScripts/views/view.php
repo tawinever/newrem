@@ -72,4 +72,31 @@
         document.getElementsByTagName("head")[0].appendChild(s);
     })();
 </script>
-<!--end of gincore-->
+<? if($action == 'thanks'):?>
+    <!-- Код тега ремаркетинга Google -->
+    <!--------------------------------------------------
+    С помощью тега ремаркетинга запрещается собирать информацию, по которой можно идентифицировать личность пользователя. Также запрещается размещать тег на страницах с контентом деликатного характера. Подробнее об этих требованиях и о настройке тега читайте на странице http://google.com/ads/remarketingsetup.
+    --------------------------------------------------->
+    <script type="text/javascript">
+        var google_tag_params = {
+            dynx_itemid: 'REPLACE_WITH_VALUE',
+            dynx_itemid2: 'REPLACE_WITH_VALUE',
+            dynx_pagetype: 'REPLACE_WITH_VALUE',
+            dynx_totalvalue: 'REPLACE_WITH_VALUE',
+        };
+    </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 929085498;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/929085498/?guid=ON&amp;script=0"/>
+        </div>
+    </noscript>
+<? endif;?>
