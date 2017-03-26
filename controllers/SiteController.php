@@ -5,9 +5,11 @@ namespace app\controllers;
 use app\components\remOnlineApi\RemOnlineApi;
 use app\models\Copyright;
 use app\models\Notification;
+use app\models\Wps;
 use Yii;
 use yii\base\ViewContextInterface;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -39,6 +41,16 @@ class SiteController extends Controller implements ViewContextInterface
             ],
         ];
     }
+
+    public function actionPage($page)
+    {
+        if($page->layout !== "new")
+            $this->layout = $page->layout;
+
+        $widgets = Wps::find()->where(['page_id' => $page->id])->orderBy('position')->asArray()->all();
+        return $this->render('page',['widgets' => $widgets,'page' => $page]);
+    }
+
 
     public function actionIndex()
     {

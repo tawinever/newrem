@@ -11,7 +11,6 @@ use app\components\sections\longreadSection\LongreadSection;
 use app\components\sections\mainSection\MainSection;
 use app\components\sections\mapSection\MapSection;
 use app\components\sections\pros2Section\Pros2Section;
-use app\components\sections\prosSection\ProsSection;
 
 $this->title = 'Ремонт Айфонов в Астане | Ремонт iPhone в Астане';
 $this->registerMetaTag([
@@ -23,7 +22,7 @@ $this->registerMetaTag([
 <?= \app\components\stickMenu\StickMenu::widget() ?>
 <?= MainSection::widget(['page' => 'iphone']) ?>
 <?= \app\components\sections\priceSection\PriceSection::widget(['page' => 'iphone'])?>
-<?= ProsSection::widget(['page' => 'iphone']) ?>
+<?= \app\components\sections\prosSection\ProsSection::widget(['page' => 'iphone']) ?>
 <?= Pros2Section::widget(['page' => 'iphone']) ?>
 <?= FeedSection::widget(['page' => 'iphone']) ?>
 <?= LastSection::widget(['page' => 'iphone']) ?>

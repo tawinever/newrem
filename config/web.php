@@ -82,10 +82,18 @@ $config = [
                 'status' => 'site/status',
 
 
+
+
+
                 //admin module
                 'admin' => 'admin/default/index',
                 'admin/<controller:\w+>' => 'admin/<controller>/index',
                 'admin/<controller:\w+>/<action:\w+>'=>'admin/<controller>/<action>',
+
+                //dynamic Landing Page group
+                [
+                    'class' => 'app\services\LandingUrlRule'
+                ],
 
             ],
         ],
@@ -102,10 +110,10 @@ if (YII_ENV_DEV) {
     //    'class' => 'yii\debug\Module',
    // ];
 
-   // $config['bootstrap'][] = 'gii';
-  //  $config['modules']['gii'] = [
-  //      'class' => 'yii\gii\Module',
-  //  ];
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
 }
 
 return $config;
