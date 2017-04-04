@@ -9,21 +9,21 @@
 namespace app\components\sections\longreadSection;
 
 
+use app\components\parents\PageWidget;
 use yii\base\Widget;
 
-class LongreadSection extends Widget
+class LongreadSection extends PageWidget
 {
-    public $page = 'home';
     public function run()
     {
         parent::run();
-        if($this->page == 'macbook') 
-            return $this->render('macbook',['page' => $this->page]);
-        if($this->page == 'notebook')
-            return $this->render('notebook',['page' => $this->page]);
-        if($this->page == 'display')
-            return $this->render('display',['page' => $this->page]);
+//        if($this->page->id == 'macbook')
+//            return $this->render('macbook',['page' => $this->page]);
+//        if($this->page->id == 'notebook')
+//            return $this->render('notebook',['page' => $this->page]);
+//        if($this->page->id == 'display')
+//            return $this->render('display',['page' => $this->page]);
 
-        return  $this->render('view',['page' => $this->page]);
+        return  $this->render('view',['simpleData' => $this->simpleData]);
     }
 }

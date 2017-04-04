@@ -18,7 +18,7 @@ class RepairSearch extends Repair
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
+            [['id', 'status','place'], 'integer'],
             [['title'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class RepairSearch extends Repair
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
+            'place' => $this->place,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title]);

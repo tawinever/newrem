@@ -16,17 +16,14 @@ class LandingUrlRule extends Object implements UrlRuleInterface
 {
     public function createUrl($manager, $route, $params)
     {
-//           TODO Realize createUrl
-//        var_dump($route);
-//        var_dump($params);
-//        die();
-//        if ($route === 'car/index') {
-//            if (isset($params['manufacturer'], $params['model'])) {
-//                return $params['manufacturer'] . '/' . $params['model'];
-//            } elseif (isset($params['manufacturer'])) {
-//                return $params['manufacturer'];
-//            }
-//        }
+        if ($route === 'site/page') {
+            if(isset($params['page']) && get_class($params['page']) == 'app\models\Page'){
+                if($params['page']->url == 'home')
+                    return '';
+                else
+                    return $params['page']->url;
+            }
+        }
         return false; // this rule does not apply
     }
 
@@ -38,7 +35,9 @@ class LandingUrlRule extends Object implements UrlRuleInterface
     public function parseRequest($manager, $request)
     {
         $pathInfo = $request->getPathInfo();
-
+        //zashite ot sluchainego naznachenie pathinfo kak home tak kak home eto tolko dlya glavnii stranicy
+        if($pathInfo == "home" || $pathInfo == "custom") return false;
+        if($pathInfo=="") $pathInfo = "home";
         $page = Page::find()
             ->where(['url' => $pathInfo])
             ->one();

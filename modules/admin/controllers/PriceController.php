@@ -6,6 +6,7 @@ use Yii;
 use app\models\Price;
 use app\models\PriceSearch;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -49,6 +50,52 @@ class PriceController extends Controller
     {
         $searchModel = new PriceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // validate if there is a editable input saved via AJAX
+        if (Yii::$app->request->post('hasEditable')) {
+            // instantiate your book model for saving
+            $priceId = Yii::$app->request->post('editableKey');
+            $model = Price::findOne($priceId);
+
+            // store a default json response as desired by editable
+            $out = Json::encode(['output'=>'', 'message'=>'']);
+
+            // fetch the first entry in posted data (there should only be one entry
+            // anyway in this array for an editable submission)
+            // - $posted is the posted data for Book without any indexes
+            // - $post is the converted array for single model validation
+            $posted = current($_POST['Price']);
+            $post = ['Price' => $posted];
+
+            // load model like any single model validation
+            if ($model->load($post)) {
+                // can save model or do something before saving model
+                $model->save();
+
+                // custom output to return to be displayed as the editable grid cell
+                // data. Normally this is empty - whereby whatever value is edited by
+                // in the input by user is updated automatically.
+                $output = '';
+
+                // specific use case where you need to validate a specific
+                // editable column posted when you have more than one
+                // EditableColumn in the grid view. We evaluate here a
+                // check to see if buy_amount was posted for the Book model
+                if (isset($posted['price'])) {
+                    $output = Yii::$app->formatter->asDecimal($model->price, 0);
+                }
+
+                // similarly you can check if the name attribute was posted as well
+                // if (isset($posted['name'])) {
+                // $output = ''; // process as you need
+                // }
+                $out = Json::encode(['output'=>$output, 'message'=>'']);
+            }
+            // return ajax json encoded response and exit
+            echo $out;
+            return;
+        }
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -104,6 +151,7 @@ class PriceController extends Controller
             ]);
         }
     }
+
 
     /**
      * Deletes an existing Price model.

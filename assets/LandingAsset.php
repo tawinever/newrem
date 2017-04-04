@@ -19,11 +19,15 @@ class LandingAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/style6.css',
+        'css/font-awesome/css/font-awesome.css',
     ];
     public $js = [
     ];
     public $depends = [
         'yii\web\YiiAsset',
+    ];
+    public $publishOptions = [
+         'forceCopy'=>true,
     ];
 
     public function init()

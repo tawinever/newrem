@@ -26,11 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             [
-                'attribute' => 'category_id',
-                'filter' => \app\models\Category::getParentCategory(),
+                'attribute' => 'parent_id',
+                'filter' => \app\models\Device::getDeviceMap(),
                 'value' => function($data){
-                    return $data->category->title;
-                },
+                    if(is_null($data->parent_id))
+                        return "Корень";
+                    return $data->parent->title;
+                }
             ],
             'title',
             [
@@ -40,6 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->getStatus();
                 },
             ],
+            'poryadok',
+            'is_root',
+            'add_children',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

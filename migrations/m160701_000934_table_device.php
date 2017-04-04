@@ -8,16 +8,16 @@ class m160701_000934_table_device extends Migration
     {
         $this->createTable('{{%device}}', [
             'id' => $this->primaryKey(),
-            'category_id' => $this->integer()->notNull(),
+            'parent_id' => $this->integer(11),
             'title' => $this->string(100)->notNull(),
             'status' => $this->smallInteger()->defaultExpression('0')->notNull(),
         ]);
         $this->createIndex('unique_title', '{{%device}}', 'title', true);
-        $this->addForeignKey('category_id_fk', '{{%device}}', 'category_id', '{{%category}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey('devicetable_parent_fk', '{{%device}}', 'parent_id', '{{%device}}', 'id', 'CASCADE', 'CASCADE');
 
         $this->insert('{{%device}}',[
-            'category_id' => 1,
-            'title' => 'Iphone 6 plus',
+            'parent_id' => null,
+            'title' => 'iPhone',
             'status' => 1,
         ]);
     }

@@ -10,5 +10,9 @@
 /** @var \app\models\Page $page */
 foreach ($widgets as $widget)
 {
-    echo $widget['widget_namespace']::widget(['page' => 'iphone']);
+    echo $widget['widget_namespace']::widget(['page' => $page]);
 }
+?>
+<?=\app\components\orderPopup\OrderPopup::widget() ?>
+
+

@@ -89,4 +89,5 @@ class Page extends \yii\db\ActiveRecord
     {
         return ArrayHelper::map(Page::find()->all(),'id','title');
     }
+
 }

@@ -18,8 +18,8 @@ class DeviceSearch extends Device
     public function rules()
     {
         return [
-            [['id', 'category_id', 'status'], 'integer'],
-            [['title'], 'safe'],
+            [['id', 'parent_id', 'status', 'poryadok','is_root'], 'integer'],
+            [['title','add_children'], 'safe'],
         ];
     }
 
@@ -60,11 +60,14 @@ class DeviceSearch extends Device
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'category_id' => $this->category_id,
+            'parent_id' => $this->parent_id,
             'status' => $this->status,
+            'poryadok' => $this->poryadok,
+            'is_root' => $this->is_root,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'add_children', $this->add_children]);
 
         return $dataProvider;
     }

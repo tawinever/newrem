@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->getStatus();
                 },
             ],
-
+            'place',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

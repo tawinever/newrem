@@ -9,11 +9,15 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "device".
  *
  * @property integer $id
- * @property integer $category_id
+ * @property integer $parent_id
  * @property string $title
  * @property integer $status
+ * @property integer $poryadok
+ * @property integer $is_root
+ * @property string $add_children
  *
- * @property Category $category
+ * @property Device $parent
+ * @property Device[] $devices
  * @property Price[] $prices
  */
 class Device extends \yii\db\ActiveRecord
@@ -35,11 +39,10 @@ class Device extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'title'], 'required'],
-            [['category_id', 'status'], 'integer'],
-            [['title'], 'string', 'max' => 100],
-            [['title'], 'unique'],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+            [['parent_id', 'status','poryadok','is_root'], 'integer'],
+            [['title','poryadok'], 'required'],
+            [['title','add_children'], 'string', 'max' => 100],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Device::className(), 'targetAttribute' => ['parent_id' => 'id']],
         ];
     }
 
@@ -50,20 +53,30 @@ class Device extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category Title',
+            'parent_id' => 'Parent ID',
             'title' => 'Title',
             'status' => 'Status',
+            'poryadok' => 'Poryadok',
+            'is_root' => 'Is Root',
+            'add_children' => 'Additional Children',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCategory()
+    public function getParent()
     {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+        return $this->hasOne(Device::className(), ['id' => 'parent_id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDevices()
+    {
+        return $this->hasMany(Device::className(), ['parent_id' => 'id']);
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -86,4 +99,15 @@ class Device extends \yii\db\ActiveRecord
     {
         return ArrayHelper::map(Device::find()->all(),'id','title');
     }
+
+    public static function getDeviceDictionary()
+    {
+        return ArrayHelper::index(Device::find()->all(),'id');
+    }
+
+    public static function getDeviceDictionaryAsArray()
+    {
+        return ArrayHelper::index(Device::find()->asArray()->all(),'id');
+    }
+
 }

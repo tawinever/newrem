@@ -11,7 +11,7 @@ use Yii;
  * @property integer $page_id
  * @property string $widget_namespace
  * @property integer $status
- * @property string $position
+ * @property integer $position
  *
  * @property Page $page
  */
@@ -32,8 +32,8 @@ class Wps extends \yii\db\ActiveRecord
     {
         return [
             [['page_id', 'widget_namespace', 'position'], 'required'],
-            [['page_id', 'status'], 'integer'],
-            [['widget_namespace', 'position'], 'string', 'max' => 100],
+            [['page_id', 'status','position'], 'integer'],
+            [['widget_namespace'], 'string', 'max' => 100],
             [['page_id'], 'exist', 'skipOnError' => true, 'targetClass' => Page::className(), 'targetAttribute' => ['page_id' => 'id']],
         ];
     }

@@ -2,22 +2,17 @@
  * Created by Rauan on 10.07.2016.
  */
 $(document).ready(function () {
-    console.log('pricesection js begin');
-    var $price = $('.section-price td[data-role="price"]');
-    $price.mouseenter(function () {
-        var $priceInfo = $(this).parent().find('td[data-role="info"]');
-        $priceInfo.text($(this).data('info'));
-        $priceInfo.addClass('changed');
+    var clearPrice = function () {
+        $('.section-price .tab-header-container span').removeClass('active');
+        $('.section-price .tab-content-container').removeClass('active');
+    }
+    $('.section-price .tab-header-container span').click(function (e) {
         if(!$(this).hasClass('active')){
-            $(this).parents(2).find('td').removeClass('active');
+            var deviceId = $(this).data('device');
+            clearPrice();
             $(this).addClass('active');
-
+            $('.section-price .tab-content-container[data-device='+deviceId+']').addClass('active');
         }
     });
 
-    $price.mouseleave(function () {
-        var $priceInfo = $(this).parent().find('td[data-role="info"]');
-        $priceInfo.removeClass('changed');
-
-    });
 });

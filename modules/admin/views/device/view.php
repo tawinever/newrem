@@ -29,15 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            [
-                'attribute' => 'category_id',
-                'value' => $model->category->title,
-            ],
+            'parent_id',
             'title',
             [
                 'attribute' => 'status',
                 'value' => $model->getStatus(),
             ],
+            'poryadok'
         ],
     ]) ?>
 

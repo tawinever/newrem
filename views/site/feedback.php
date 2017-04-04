@@ -17,14 +17,4 @@ $this->registerMetaTag([
 ?>
 <?= app\components\stickMenu\StickMenu::widget(['fixed' => true])?>
 
-<div class="page-feedback">
-    <h2 class="ta-c">Наши отзывы</h2>
-
-    <div class="feedback-item-container">
-    <? foreach ($feedbacks as $feedback):?>
-        <div class="feedback-item">
-            <?=$feedback->content ?>
-        </div>
-    <?endforeach;?>
-    </div>
-</div>
+<?= app\components\sections\feedSection\FeedSection::widget(['mode' => 'asPage','page' => $page]);

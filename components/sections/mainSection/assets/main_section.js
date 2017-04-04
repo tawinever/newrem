@@ -2,8 +2,7 @@
  * Created by Rauan on 23.06.2016.
  */
 
-function SetBGVideo(videoName) {
-    console.log('we ready');
+function SetBGVideo(videoName,host) {
     var video = $('.section-main video').get(0);
     var r = new XMLHttpRequest();
     r.onload = function() {
@@ -12,10 +11,10 @@ function SetBGVideo(videoName) {
         video.play();
     };
     if (video.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
-        r.open("GET", "http://remonteka.kz/videos/"+videoName+".mp4");
+        r.open("GET", host+"/videos/"+videoName+".mp4");
     }
     else {
-        r.open("GET", "http://remonteka.kz/videos/"+videoName+".webm");
+        r.open("GET", host+"/videos/"+videoName+".webm");
     }
     r.responseType = "blob";
     r.send();

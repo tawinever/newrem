@@ -9,9 +9,10 @@
 namespace app\components\sections\mapSection;
 
 
+use app\components\parents\PageWidget;
 use yii\base\Widget;
 
-class MapSection extends Widget
+class MapSection extends PageWidget
 {
     public function run()
     {

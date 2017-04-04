@@ -9,48 +9,43 @@
 namespace app\components\sections\mainSection;
 
 
-use app\models\Copyright;
-use yii\base\Widget;
-use yii\helpers\ArrayHelper;
+use app\components\parents\PageWidget;
+use yii\helpers\Url;
 
-class MainSection extends Widget
+class MainSection extends PageWidget
 {
-    public $page = "home";
     public $bgVideo = "sup";
-    
+
     public function init()
     {
-        parent::init(); 
-        if($this->page == 'macbook' || $this->page == 'notebook')
-            $this->bgVideo = "bg_mac";
-        
+        parent::init();
+        $this->bgVideo = $this->simpleData['bgVideo'];
     }
 
     public function run()
     {
         parent::run();
         $this->registerClientScript();
-        $models = Copyright::find()->where(['page' => $this->page, 'section' => 'mainSection'])->all();
-        $mapModels = ArrayHelper::index($models,'position');
         if(\Yii::getAlias('@device') != 'mobile')
         {
-            return $this->render('view',['copy' => $mapModels,'page' => $this->page,'bgVideo' => $this->bgVideo]);
+            return $this->render('view',['simpleData' => $this->simpleData]);
         }
         else {
-            return $this->render('mobile',['copy' => $mapModels,'page' => $this->page]);
+            return $this->render('mobile',['simpleData' => $this->simpleData]);
 
         }
     }
 
     protected function registerClientScript()
     {
+        $host = Url::base(true);
         $view = $this->getView();
         MainSectionAsset::register($view);
         if(\Yii::getAlias('@device') != 'mobile')
         {
             $js = <<<EOT
             $(window).load(function(){
-                SetBGVideo('$this->bgVideo')
+                SetBGVideo('$this->bgVideo','$host')
             });
 EOT;
             $view->registerJs($js);

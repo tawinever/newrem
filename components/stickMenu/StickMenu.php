@@ -9,9 +9,9 @@
 namespace app\components\stickMenu;
 
 
-use yii\base\Widget;
+use app\components\parents\PageWidget;
 
-class StickMenu extends Widget
+class StickMenu extends PageWidget
 {
     public $fixed = false;
     public function run()

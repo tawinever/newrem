@@ -11,6 +11,7 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Admin',
         ],
+        'gridview' => [ 'class' => '\kartik\grid\Module' ],
     ],
     'components' => [
 
@@ -62,18 +63,23 @@ $config = [
             'enableStrictParsing' => true,
             'rules' => [
                 //site controller
-                '' => 'site/index',
+                //'' => 'site/index',
                 'iphone-astana' => 'site/iphone',
-                'ipad-astana' => 'site/ipad',
-                'telefon-astana' => 'site/android',
-                'notebook-astana' => 'site/notebook',
-                'macbook-astana' => 'site/macbook',
+                //'ipad-astana' => 'site/ipad',
+               // 'telefon-astana' => 'site/android',
+                //'notebook-astana' => 'site/notebook',
+                //'macbook-astana' => 'site/macbook',
                 'express-astana' => 'site/express',
                 'zamena-stekla' => 'site/display',
 
                 'calc/' => 'site/calc',
-                'calc/<category:\w+>/' => 'site/calc',
-                'calc/<category:\w+>/<model:\w+>/' => 'site/calc',
+//                'calc/<category:\w+>/' => 'site/calc',
+//                'calc/<category:\w+>/<model:\w+>/' => 'site/calc',
+                [
+                    'pattern' => 'calc/<devices:.*>',
+                    'route' => 'site/calc',
+                    'encodeParams' => false,
+                ],
 
                 'thanks' => 'site/thanks',
                 'contact' => 'site/contact',
@@ -90,9 +96,19 @@ $config = [
                 'admin/<controller:\w+>' => 'admin/<controller>/index',
                 'admin/<controller:\w+>/<action:\w+>'=>'admin/<controller>/<action>',
 
+
+                //sandboxes
+                'insta' => 'site/insta',
+                'google' => 'site/google',
+
                 //dynamic Landing Page group
                 [
                     'class' => 'app\services\LandingUrlRule'
+                ],
+
+                //redirects
+                [
+                    'class' => 'app\services\SeoRedirect'
                 ],
 
             ],
@@ -105,15 +121,16 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    //$config['bootstrap'][] = 'debug';
-    //$config['modules']['debug'] = [
-    //    'class' => 'yii\debug\Module',
-   // ];
+//    $config['bootstrap'][] = 'debug';
+//    $config['modules']['debug'] = [
+//        'class' => 'yii\debug\Module',
+//    ];
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-    ];
+//    $config['bootstrap'][] = 'gii';
+//    $config['modules']['gii'] = [
+//        'class' => 'yii\gii\Module',
+//    ];
+//
 }
 
 return $config;

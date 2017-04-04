@@ -11,6 +11,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $id
  * @property string $title
  * @property integer $status
+ * @property integer $place
  *
  * @property Price[] $prices
  */
@@ -32,8 +33,8 @@ class Repair extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title'], 'required'],
-            [['status'], 'integer'],
+            [['title','place'], 'required'],
+            [['status','place'], 'integer'],
             [['title'], 'string', 'max' => 100],
             [['title'], 'unique'],
         ];
@@ -48,6 +49,7 @@ class Repair extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'status' => 'Status',
+            'place' => 'Place',
         ];
     }
 
@@ -72,5 +74,10 @@ class Repair extends \yii\db\ActiveRecord
     public static function getRepairMap()
     {
         return ArrayHelper::map(Repair::find()->all(),'id','title');
+    }
+
+    public static function getRepairDictionary()
+    {
+        return ArrayHelper::index(Repair::find()->all(),'id');
     }
 }

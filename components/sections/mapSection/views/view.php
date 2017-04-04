@@ -6,7 +6,7 @@
  * Time: 22:54
  */?>
 <section class="section-map" id="section-map">
-    <div style="background-color: #1e3948;padding: 30px 0;width: 100%;color: #fff;">
+    <div class="section-title-container">
         <h2 class="ta-c">Мы расположены рядом с ТЦ "Керуен" <br><br> (не больше 3-х минут)</h2>
     </div>
     <div style="height: 400px;width: 100%">

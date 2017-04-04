@@ -18,8 +18,8 @@ class WpsSearch extends Wps
     public function rules()
     {
         return [
-            [['id', 'page_id', 'status'], 'integer'],
-            [['widget_namespace', 'position'], 'safe'],
+            [['id', 'page_id', 'status','position'], 'integer'],
+            [['widget_namespace'], 'safe'],
         ];
     }
 
@@ -62,10 +62,11 @@ class WpsSearch extends Wps
             'id' => $this->id,
             'page_id' => $this->page_id,
             'status' => $this->status,
+            'postition' => $this->position,
         ]);
 
-        $query->andFilterWhere(['like', 'widget_namespace', $this->widget_namespace])
-            ->andFilterWhere(['like', 'position', $this->position]);
+        $query->andFilterWhere(['like', 'widget_namespace', $this->widget_namespace]);
+
 
         return $dataProvider;
     }

@@ -8,52 +8,63 @@
 
     use yii\helpers\Url;
 
-    $calcUrl = "";
-    if($page == 'home')
-        $calcUrl = Url::toRoute('site/calc');
-    if($page == 'iphone')
-        $calcUrl = Url::toRoute('calc/'.'iPhone');
-    if($page == 'android')
-        $calcUrl = Url::toRoute('calc/'.'Телефон');
-    if($page == 'express')
-        $calcUrl = Url::toRoute('calc/'.'Express');
-    if($page == 'ipad')
-        $calcUrl = Url::toRoute('calc/'.'iPad');
-    if($page == 'macbook')
-        $calcUrl = Url::toRoute('calc/'.'Mac');
-    if($page == 'notebook')
-        $calcUrl = Url::toRoute('calc/w'.'Ноутбук');
+    $addUrl = "";
+    $addTab = "";
+    if(isset($simpleData['addTab'])){
+        $addTab = explode('|',$simpleData['addTab'])[0];
+        $addUrl = explode('|',$simpleData['addTab'])[1];
+    }
+
 ?>
-<section class="section-price">
+
+<section class="section-price general">
     <div class="wrapper">
-        <a href="<?= $calcUrl ?>"><h2 class="ta-c title">Цены</h2></a>
-        <table>
-            <tr>
-                <th>Тип ремонта</th>
-                <? foreach ($devices as $device): ?>
-                    <th><h3><?=$category->title.' '.$device->title ?></h3></th>
+        <a href="<?= Url::toRoute($calcUrl)?>"><h2 class="ta-c title">Цены</h2></a>
+        <div class="subtitle ta-c">
+            Выберите модель устройства
+        </div>
+        <div class="ta-c">
+            <div class="tab-header-container">
+            <?foreach ($prices as $device_id => $repairs):?>
+                <span class="<?if(isset($activeTab) && $activeTab == $device_id) echo 'active';?>" data-device="<?=$device_id?>"> <?= $deviceDictionary[$device_id]->title ?> </span>
+            <?endforeach;?>
+            <?if(isset($simpleData['addTab'])):?>
+                <span>
+                    <a href="<?=explode('|',$simpleData['addTab'])[1]?>">
+                        <?=explode('|',$simpleData['addTab'])[0]?>
+                    </a>
+                </span>
+            <?endif;?>
+
+            </div>
+        </div>
+
+        <?foreach ($prices as $device_id => $rowPrices):?>
+            <div class="tab-content-container <?if(isset($activeTab) && $activeTab == $device_id) echo 'active';?>" data-device="<?=$device_id?>">
+                <?foreach ($rowPrices as $rowPrice) :?>
+                    <div class="tab-item">
+                        <div class="tab-item-first">
+                            <span class="name">
+                                <?= $repairDictionary[$rowPrice['repair_id']]->title ?>
+                            </span>
+                            <span class="duration">
+                                <?= explode('|',$rowPrice['info'])[0]  ?>
+
+                            </span>
+
+                            <span class="price">
+                                <?= $rowPrice['price'].' тг.' ?>
+                            </span>
+                        </div>
+                        <div class="tab-item-second popup-open" data-order-info="<?= $deviceDictionary[$parent_device_id]->title ?> - <?= $deviceDictionary[$device_id]->title ?>" data-info="<?=explode('|',$rowPrice['info'])[0].', '.explode('|',$rowPrice['info'])[1] ?>">
+                            <span>Подробнее</span>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+
+                    </div>
                 <?endforeach;?>
-                <th width="300px">Время ремонта</th>
-                <th >Заказать <br> Ремонт</th>
-            </tr>
-            <?foreach ($repairs as $repair ): ?>
-                <tr>
-                    <td><h3><?=$repair->title?></h3></td>
-
-                    <? foreach ($devices as $device): ?>
-                        <?if(array_key_exists($repair->id.'-'.$device->id,$mappedPrices)): ?>
-                            <td class = "popup-open" data-order-info="<?=$category->title.' '.$device->title.' - '.$repair->title.' - '.$mappedPrices[$repair->id.'-'.$device->id]->price.' тг'?>" data-role="price" data-info="<?=$mappedPrices[$repair->id.'-'.$device->id]->info?>"><?=$mappedPrices[$repair->id.'-'.$device->id]->price?> тг</td>
-                        <?else:?>
-                            <td> - </td>
-                        <?endif;?>
-                    <?endforeach;?>
-                    <td data-role="info">Наведите на желаемую цену</td>
-                    <td class="ta-r"><button class="popup-open ctr-btn ctr-green" data-order-info="<?=$category->title.' - '.$repair->title?>" data-info="<?=$mappedPrices[$repair->id.'-'.$device->id]->info?>"> Заказать</button></td>
-                </tr>    
-            <?endforeach; ?>
-
-            
-
-        </table>
+            </div>
+        <?endforeach;?>
     </div>
 </section>

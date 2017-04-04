@@ -14,6 +14,7 @@ use app\models\Device;
 use app\models\Price;
 use app\models\Repair;
 use Yii;
+use yii\base\UserException;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
@@ -21,58 +22,57 @@ use yii\web\NotFoundHttpException;
 class Calculate extends Widget
 {
     public $bread = [];
+    public $deviceBread = [];
     public function run()
     {
         parent::run();
         $this->fetchBread();
         if(!$this->isValidFetchData())
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new UserException('Invalid Device Parameters');
         $this->registerClientScript();
         return $this->render('view');
     }
 
-    private function getPrices()
-    {
-        $prices = Price::find()->where(['status' => Price::STATUS_ACTIVE])->all();
-        $ans = [];
-        $categoryMap = Category::getParentCategory();
-        $deviceMap = Device::getDeviceMap();
-        $deviceCategoryMap = ArrayHelper::map(Device::find()->all(),'id','category_id');
-        $repairMap = Repair::getRepairMap();
-        foreach ($prices as $price){
-            $item = [
-                'category' => $categoryMap[$deviceCategoryMap[$price->device_id]],
-                'device' => $deviceMap[$price->device_id],
-                'repair' => $repairMap[$price->repair_id],
-                'price' => $price->price,
-                'info' => $price->info
-            ];
-            $ans [] = $item;
-        }
-        return $ans;
+    private function getDeviceTree(){
+        $device = Device::find()->asArray()->all();
+        return $device;
+    }
+
+    private function getIndexedPrices(){
+        return ArrayHelper::index(Price::find()->asArray()->all(),null, 'device_id');
     }
 
     private function fetchBread(){
-        if(Yii::$app->request->get('category'))
-            $this->bread[] = str_replace('_',' ',Yii::$app->request->get('category'));
-        if(Yii::$app->request->get('model'))
-            $this->bread[] = str_replace('_',' ',Yii::$app->request->get('model'));
+        if(Yii::$app->request->get('devices') != null){
+            $params = explode('/', Yii::$app->request->get('devices'));
+            foreach ($params as $param)
+                $this->bread[] = str_replace('_',' ',$param);
+        }
+    }
+
+    private function getCurrentPossibleChildren($root){
+        $ans = Device::find()->where(['parent_id' => $root['id']])->asArray()->all();
+        $ans1 = Device::find()->where(['id' => explode('|',$root['add_children'])])->asArray()->all();
+        return array_merge($ans,$ans1);
     }
 
     private function isValidFetchData(){
-        if(count($this->bread) == 1){
-            $category = Category::find()->where(['title' => $this->bread[0], 'status' => Category::STATUS_ACTIVE])->one();
-            if(is_null($category)) return false;
-            $arDeviceIds = ArrayHelper::getColumn($category->devices,'id',false);
-            if(!Price::find()->where(['device_id' => $arDeviceIds, 'status' => Price::STATUS_ACTIVE])->exists())
+        $currentPossibleDevices = Device::find()->where(['is_root' => 1])->asArray()->all();
+        foreach ($this->bread as $crumb){
+            $valid = false;
+            foreach ($currentPossibleDevices as $currentPossibleDevice)
+            {
+                if($currentPossibleDevice['title'] == $crumb)
+                {
+                    $valid = true;
+                    $this->deviceBread[] = $currentPossibleDevice;
+                    $currentPossibleDevices = $this->getCurrentPossibleChildren($currentPossibleDevice);
+                    break;
+                }
+            }
+            if(!$valid){
                 return false;
-        }
-        if(count($this->bread) == 2){
-            $device = Device::find()->where(['title' => $this->bread[1]])->one();
-            if(is_null($device)) return false;
-            if($device->category->title != $this->bread[0]) return false;
-            if(!Price::find()->where(['device_id' => $device->id, 'status' => Price::STATUS_ACTIVE])->exists())
-                return false;
+            }
         }
         return true;
     }
@@ -81,7 +81,7 @@ class Calculate extends Widget
     {
         $view = $this->getView();
         CalculateAsset::register($view);
-        $js = "initCalc(" . json_encode($this->getPrices()) . ", " . json_encode($this->bread) . ");";
+        $js = "initCalc(" . json_encode($this->getDeviceTree()) . ", " . json_encode(Device::getDeviceDictionaryAsArray()) . ", "  .  json_encode($this->getIndexedPrices()) . ", " . json_encode(Repair::getRepairMap()) . ", " . json_encode($this->deviceBread) .");";
         $view->registerJs($js);
     }
 }

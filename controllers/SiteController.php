@@ -5,7 +5,9 @@ namespace app\controllers;
 use app\components\remOnlineApi\RemOnlineApi;
 use app\models\Copyright;
 use app\models\Notification;
+use app\models\Page;
 use app\models\Wps;
+use linslin\yii2\curl\Curl;
 use Yii;
 use yii\base\ViewContextInterface;
 use yii\filters\AccessControl;
@@ -42,15 +44,43 @@ class SiteController extends Controller implements ViewContextInterface
         ];
     }
 
+    //Action where generates all landing pages
     public function actionPage($page)
     {
         if($page->layout !== "new")
             $this->layout = $page->layout;
 
+        //getting placed widgets
         $widgets = Wps::find()->where(['page_id' => $page->id])->orderBy('position')->asArray()->all();
+
+
+        //trying to get positions for parent object
+        //if i there empty will go parent of parent and so on...
+        $parentPage = null;
+        if(!is_null($page->parent_id)) $parentPage = $page->parent;
+        while(count($widgets) == 0){
+            if(!is_null($parentPage)) {
+                $widgets = Wps::find()->where(['page_id' => $parentPage->id])->orderBy('position')->asArray()->all();
+                if(!is_null($parentPage)) $parentPage = $parentPage->parent;
+                else $parentPage = null;
+            }
+            else
+                break;
+        }
         return $this->render('page',['widgets' => $widgets,'page' => $page]);
     }
 
+
+    public function actionInsta(){
+
+        return "hello, its insta background";
+    }
+
+    public function actionGoogle(){
+
+
+        return "hello, its google background";
+    }
 
     public function actionIndex()
     {
@@ -104,8 +134,8 @@ class SiteController extends Controller implements ViewContextInterface
 
     public function actionFeedback()
     {
-        $feedbacks = Copyright::find()->where(['section' => 'feedSection', 'position' => 'insta'])->orderBy('id DESC')->all();
-        return $this->render('feedback',['feedbacks' => $feedbacks]);
+        $page = Page::find()->one();
+        return $this->render('feedback',['page' => $page]);
     }
 
     public function actionPolicy()
