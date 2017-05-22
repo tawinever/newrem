@@ -29,7 +29,7 @@ class PriceSectionAsset extends AssetBundle
         parent::init();
         if(\Yii::getAlias('@device') == 'mobile')
         {
-            $this->js = [];
+            $this->js = ['price_section.js'];
         }
     }
 }

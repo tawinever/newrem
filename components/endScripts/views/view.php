@@ -38,12 +38,7 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/38563210" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<!-- RedConnect -->
-<script id="rhlpscrtg" type="text/javascript" charset="utf-8" async="async"
-        src="https://web.redhelper.ru/service/main.js?c=ynurgazy"></script>
-<div style="display: none"><a class="rc-copyright"
-                              href="http://redconnect.ru">Обратный звонок RedConnect</a></div>
-<!--/RedConnect -->
+
 <!-- Facebook Pixel Code -->
 <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -100,3 +95,11 @@
         </div>
     </noscript>
 <? endif;?>
+<!--binotel widget-->
+<script type="text/javascript">
+    (function(d, w, s) {
+        var widgetHash = '5y56asa5w84skr862th3', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
+        gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+        var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+    })(document, window, 'script');
+</script>

@@ -27,7 +27,5 @@ class MainSectionAsset extends AssetBundle
     {
         $this->sourcePath = __DIR__ . '/assets';
         parent::init();
-        if(\Yii::getAlias('@device') == 'mobile')
-            $this->js = ['main_section_position.js'];
     }
 }

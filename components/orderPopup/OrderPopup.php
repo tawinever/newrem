@@ -30,6 +30,11 @@ class OrderPopup extends Widget
                 ->send();
             Yii::$app->getResponse()->redirect(['site/thanks']);
         } else {
+            if(\Yii::getAlias('@device') == 'mobile') {
+                return $this->render('mobile', [
+                    'model' => $model,
+                ]);
+            }
             return $this->render('view', [
                 'model' => $model,
             ]);

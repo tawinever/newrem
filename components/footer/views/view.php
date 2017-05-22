@@ -51,7 +51,7 @@ use yii\helpers\Url; ?>
                (Вход со стороны Мин Обороны)</a>
            </span>
            <span>
-               <a href="tel:87471236622">
+               <a href="tel:<?=Yii::$app->params['telephone_url']?>">
                <div class="image">
                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.731 455.731">
                         <g>
@@ -72,7 +72,7 @@ use yii\helpers\Url; ?>
                         </g>
                     </svg>
                </div>
-               8-747-123-66-22</a>
+               <?=Yii::$app->params['telephone_label']?></a>
            </span>
             <span><a href="mailto:support@remonteka.kz">support@remonteka.kz</a></span>
 

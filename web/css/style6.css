@@ -430,6 +430,7 @@ div span.gcw_title:hover {
 }
 
 
+
 .section-shortread h2{
     margin-top: 10px;
     font-size: 36px;
@@ -437,6 +438,11 @@ div span.gcw_title:hover {
     line-height: 40px;
     color: #1e3948;
 
+}
+
+.section-shortread h3{
+    font-size: 21px;
+    font-weight: 500;
 }
 
 .section-shortread .shortread-item > img{
@@ -452,6 +458,9 @@ div span.gcw_title:hover {
     color: #1e3948;
 }
 
+.section-shortread .red {
+    color: #fa7167;
+}
 /*end ShortRead Section*/
 
 /*begin ProsSection*/

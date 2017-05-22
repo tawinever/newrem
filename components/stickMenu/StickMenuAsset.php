@@ -26,5 +26,8 @@ class StickMenuAsset extends AssetBundle
     {
         $this->sourcePath = __DIR__ . '/assets';
         parent::init();
+        if (\Yii::getAlias('@device') == 'mobile') {
+            $this->js = ['stick_menu_mobile.js'];
+        }
     }
 }

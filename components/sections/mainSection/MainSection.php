@@ -26,14 +26,7 @@ class MainSection extends PageWidget
     {
         parent::run();
         $this->registerClientScript();
-        if(\Yii::getAlias('@device') != 'mobile')
-        {
-            return $this->render('view',['simpleData' => $this->simpleData]);
-        }
-        else {
-            return $this->render('mobile',['simpleData' => $this->simpleData]);
-
-        }
+        return $this->render('view',['simpleData' => $this->simpleData]);
     }
 
     protected function registerClientScript()
@@ -41,15 +34,11 @@ class MainSection extends PageWidget
         $host = Url::base(true);
         $view = $this->getView();
         MainSectionAsset::register($view);
-        if(\Yii::getAlias('@device') != 'mobile')
-        {
-            $js = <<<EOT
-            $(window).load(function(){
-                SetBGVideo('$this->bgVideo','$host')
-            });
+        $js = <<<EOT
+        $(window).load(function(){
+            SetBGVideo('$this->bgVideo','$host')
+        });
 EOT;
-            $view->registerJs($js);
-        }
-
+        $view->registerJs($js);
     }
 }

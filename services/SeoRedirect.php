@@ -30,7 +30,8 @@ class SeoRedirect implements UrlRuleInterface
         $pathInfo = $request->getPathInfo();
         if($pathInfo == 'ipad-astana'){
             $page = Page::find()->where(['url' => 'ipad'])->one();
-            Yii::$app->getResponse()->redirect(['site/page', 'page' => $page],301)->send();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
         }
         return false;
     }

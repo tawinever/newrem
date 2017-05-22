@@ -34,7 +34,7 @@ class LandingAsset extends AssetBundle
     {
         parent::init();
         if (\Yii::getAlias('@device') == 'mobile') {
-            $this->css = ['css/mobile3.css'];
+            $this->css = ['css/mobile3.css','css/font-awesome/css/font-awesome.css',];
         }
     }
 }

@@ -10,20 +10,26 @@ namespace app\components\sections\longreadSection;
 
 
 use app\components\parents\PageWidget;
+use app\models\Page;
+use yii\base\UserException;
 use yii\base\Widget;
+use yii\helpers\ArrayHelper;
 
 class LongreadSection extends PageWidget
 {
     public function run()
     {
         parent::run();
-//        if($this->page->id == 'macbook')
-//            return $this->render('macbook',['page' => $this->page]);
-//        if($this->page->id == 'notebook')
-//            return $this->render('notebook',['page' => $this->page]);
-//        if($this->page->id == 'display')
-//            return $this->render('display',['page' => $this->page]);
 
+        if(\Yii::getAlias('@device') == 'mobile') {
+            $pageUrl = $this->page->url;
+            $pageUrl = substr($pageUrl, strlen( \Yii::$app->params['mobilePrefix']));
+            $this->page = Page::find()->where(['url' => $pageUrl])->one();
+            if (is_null($this->page))
+                throw new UserException('You should create page');
+
+            $this->simpleData = ArrayHelper::map($this->getSimpleData(),'key','value');
+        }
         return  $this->render('view',['simpleData' => $this->simpleData]);
     }
 }

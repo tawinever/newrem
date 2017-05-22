@@ -29,7 +29,7 @@ function initCalc(arData, deviceDictionary, indexedPrice, repairMap, bread) {
         bread.forEach(function (item) {
             ans += item.title + " - ";
         })
-        return ans;
+        return ans.substring(0,ans.length-2);
     }
 
     //drawing routines

@@ -52,6 +52,11 @@ class FeedSection extends PageWidget
 //
 //        return $this->render('view',['feedbacks' => $models]);
 
+        if(\Yii::getAlias('@device') == 'mobile')
+        {
+            return $this->render('mobile',['googleFeeds' => $this->googleFeeds, 'instaFeeds' => $this->instaFeeds]);
+
+        }
         return $this->render('view',['googleFeeds' => $this->googleFeeds, 'instaFeeds' => $this->instaFeeds]);
 
 

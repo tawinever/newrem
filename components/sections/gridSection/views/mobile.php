@@ -2,36 +2,31 @@
 /**
  * Created by PhpStorm.
  * User: Rauan
- * Date: 13.07.2016
- * Time: 2:57
+ * Date: 21.06.2016
+ * Time: 4:06
  */
-use yii\helpers\Url; ?>
+use app\components\sections\gridSection\GridSection;
+use yii\helpers\Url;
+
+$grids = array_slice($grids,0,5);
+?>
 <section class="section-grid">
-    <h2 class="ta-c"><a href="<?=Url::toRoute('site/calc')?>">Найти свое устройство</a></h2>
     <div class="mosaic-container">
-        <div class="mosaic-row">
-            <div class="mosaic-item mosaic-1">
-                <a href="<?= Url::toRoute('site/iphone'); ?>"><h3>Айфон</h3></a>
-            </div>
-            <div class="mosaic-item mosaic-2">
-                <a href="<?= Url::toRoute('site/android'); ?>"><h3>Android телефоны</h3></a>
-            </div>
-        </div>
-        <div class="mosaic-row">
-            <div class="mosaic-item mosaic-4">
-                <a href="<?= Url::toRoute('site/notebook'); ?>"><h3>Ноутбук</h3></a>
-            </div>
-            <div class="mosaic-item mosaic-6">
-                <a href="<?= Url::toRoute('site/macbook'); ?>"><h3>Макбуки</h3></a>
-            </div>
-        </div>
-        <div class="mosaic-row">
-            <div class="mosaic-item mosaic-8">
-                <a href="<?= Url::toRoute('site/express'); ?>"><h3>Ремонт <br>на выезд</h3></a>
-            </div>
-            <div class="mosaic-item mosaic-3">
-                <a href="<?= Url::toRoute('site/ipad'); ?>"><h3>Айпад</h3></a>
-            </div>
-        </div>
+        <? foreach($grids as $grid){
+            switch ($gridDictionary[$grid->id]) {
+                case GridSection::GRID_TYPE[0]:
+                    echo $this->render('_defaultMobileGrid', ['grid' => $grid,'color' => $color]);
+                    break;
+                case GridSection::GRID_TYPE[1]:
+                    echo $this->render('_customUrlGrid', ['grid' => $grid,'color' => $color]);
+                    break;
+                case GridSection::GRID_TYPE[2]:
+                    echo $this->render('_ctaGrid', ['grid' => $grid,'color' => $color]);
+                    break;
+            }
+
+        } ?>
+
     </div>
 </section>
+

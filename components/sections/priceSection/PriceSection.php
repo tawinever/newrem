@@ -142,6 +142,20 @@ class PriceSection extends PageWidget
         $this->registerClientScript();
 
         if($this->mode == 'extended'){
+            if(\Yii::getAlias('@device') == 'mobile') {
+                return  $this->render('mobile_view3',[
+                    'parent_device_id' => $this->simpleData['deviceParentId'],
+                    'prices' => $this->prices,
+                    'repairDictionary' => $this->repairDictionary,
+                    'deviceDictionary' => $this->deviceDictionary,
+                    'calcUrl' => $this->simpleData['calcUrl'],
+                    'activeTab' => $this->simpleData['activeTab'],
+                    'tabParentDevices' => $this->tabParentDevices,
+                    'tabsAvailableDevices' => $this->tabsAvailableDevices,
+                    'tabsAvailableRepairs' => $this->tabsAvailableRepairs,
+
+                ]);
+            }
             return  $this->render('view3',[
                 'parent_device_id' => $this->simpleData['deviceParentId'],
                 'prices' => $this->prices,
@@ -157,7 +171,18 @@ class PriceSection extends PageWidget
         }
 
 
-        if($this->mode == 'general')
+        if($this->mode == 'general'){
+            if(\Yii::getAlias('@device') == 'mobile') {
+                return  $this->render('mobile_view',[
+                    'parent_device_id' => $this->simpleData['deviceParentId'],
+                    'prices' => $this->prices,
+                    'repairDictionary' => $this->repairDictionary,
+                    'deviceDictionary' => $this->deviceDictionary,
+                    'calcUrl' => $this->simpleData['calcUrl'],
+                    'activeTab' => $this->simpleData['activeTab'],
+                    'simpleData' => $this->simpleData,
+                ]);
+            }
             return  $this->render('view',[
                 'parent_device_id' => $this->simpleData['deviceParentId'],
                 'prices' => $this->prices,
@@ -167,8 +192,10 @@ class PriceSection extends PageWidget
                 'activeTab' => $this->simpleData['activeTab'],
                 'simpleData' => $this->simpleData,
             ]);
-        else
-            return  $this->render('view2',[
+        }
+
+        if(\Yii::getAlias('@device') == 'mobile') {
+            return  $this->render('mobile_view2',[
                 'parent_device_id' => $this->simpleData['deviceParentId'],
                 'prices' => $this->prices,
                 'repairDictionary' => $this->repairDictionary,
@@ -176,6 +203,16 @@ class PriceSection extends PageWidget
                 'calcUrl' => $this->simpleData['calcUrl'],
                 'activeTab' => $this->simpleData['activeTab'],
             ]);
+        }
+
+        return  $this->render('view2',[
+            'parent_device_id' => $this->simpleData['deviceParentId'],
+            'prices' => $this->prices,
+            'repairDictionary' => $this->repairDictionary,
+            'deviceDictionary' => $this->deviceDictionary,
+            'calcUrl' => $this->simpleData['calcUrl'],
+            'activeTab' => $this->simpleData['activeTab'],
+        ]);
     }
 
 

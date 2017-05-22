@@ -64,7 +64,7 @@ $config = [
             'rules' => [
                 //site controller
                 //'' => 'site/index',
-                'iphone-astana' => 'site/iphone',
+                //'iphone-astana' => 'site/iphone',
                 //'ipad-astana' => 'site/ipad',
                // 'telefon-astana' => 'site/android',
                 //'notebook-astana' => 'site/notebook',
