@@ -13,7 +13,7 @@ $this->registerMetaTag([
 ]);
 
 ?>
-<?= app\components\stickMenu\StickMenu::widget(['fixed' => true])?>
+<?= app\components\stickMenu\StickMenu::widget()?>
 
 
 <div class="page-policy">

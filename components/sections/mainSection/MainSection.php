@@ -11,6 +11,10 @@ namespace app\components\sections\mainSection;
 
 use app\components\parents\PageWidget;
 use yii\helpers\Url;
+use app\models\Page;
+use yii\base\UserException;
+use yii\base\Widget;
+use yii\helpers\ArrayHelper;
 
 class MainSection extends PageWidget
 {
@@ -19,12 +23,26 @@ class MainSection extends PageWidget
     public function init()
     {
         parent::init();
-        $this->bgVideo = $this->simpleData['bgVideo'];
+        if(isset($this->simpleData['bgVideo'])){
+        	$this->bgVideo = $this->simpleData['bgVideo'];	
+        }
+        if(\Yii::getAlias('@device') == 'mobile') {
+            $pageUrl = $this->page->url;
+            $pageUrl = substr($pageUrl, strlen( \Yii::$app->params['mobilePrefix']));
+            $this->page = Page::find()->where(['url' => $pageUrl])->one();
+            if (is_null($this->page))
+                throw new UserException('You should create page');
+
+            $this->simpleData = ArrayHelper::map($this->getSimpleData(),'key','value');
+        }
     }
 
     public function run()
     {
         parent::run();
+        if(\Yii::getAlias('@device') == 'mobile'){
+        	return $this->render('mobile',['simpleData' => $this->simpleData]);
+        }
         $this->registerClientScript();
         return $this->render('view',['simpleData' => $this->simpleData]);
     }

@@ -9,6 +9,7 @@ use app\components\sections\gridSection\GridSection;
 use yii\helpers\Url;
 
 ?>
+<?if(count($grids) > 0):?>
 <section class="section-grid">
     <div class="mosaic-container">
         <? foreach($grids as $grid){
@@ -28,4 +29,5 @@ use yii\helpers\Url;
 
     </div>
 </section>
+<?endif;?>
 

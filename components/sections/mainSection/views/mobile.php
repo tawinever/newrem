@@ -1,37 +1,47 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Rauan
- * Date: 11.07.2016
- * Time: 3:47
+ * User: rauan
+ * Date: 5/16/17
+ * Time: 5:45 PM
  */
-use yii\helpers\Url;
-$calcUrl = "";
-if($page == 'home')
-    $calcUrl = Url::toRoute('site/calc');
-if($page == 'iphone')
-    $calcUrl = Url::toRoute('calc/'.'iPhone');
-if($page == 'android')
-    $calcUrl = Url::toRoute('calc/'.'Телефон');
-if($page == 'express')
-    $calcUrl = Url::toRoute('calc/'.'Express');
-if($page == 'ipad')
-    $calcUrl = Url::toRoute('calc/'.'iPad');
-if($page == 'macbook')
-    $calcUrl = Url::toRoute('calc/'.'Mac');
-if($page == 'notebook')
-    $calcUrl = Url::toRoute('calc/'.'Ноутбук');
-?>
-<section class="section-main ta-c">
-    <div class="content-wrap">
-        <h2 class="ta-c"><?=$copy['utp']->content ?></h2>
-        <a href="<?= $calcUrl ?>" class="ctr-btn ctr-green">
-            Узнать время и цену ремонта
+use app\models\Page;
+use yii\helpers\Url; ?>
+
+<section class="section-main">
+    <div class="first-part">
+        <a href="<?= Url::to(['site/page', 'page' => Page::find()->where(['title' => 'home'])->one()])?>">
+            <img src="<?=Yii::getAlias('@web')?>/img/dark-logo.png" alt="Remonteka.kz">
         </a>
-        <h3>или</h3>
-        <a class="ctr-btn ctr-red  popup-open">
-            Получить БЕСПЛАТНУЮ <br>консультацию
+        <br>
+        <h1>
+            <?=$simpleData['underLogo']?>
+        </h1>
+        <a class="ctr-blue ctr-btn popup-open nohover">
+            <span class="tv-middle">Оформить заявку</span>
+            <i class="fa fa-pencil"></i>
+        </a>
+    </div>
+    <div class="second-part">
+        <a href="tel:<?= Yii::$app->params['telephone_url'] ?>">
+            <i class="fa fa-mobile-phone"></i>
+            <?= Yii::$app->params['telephone_label'] ?>
+        </a>
+        <a href="<?=Yii::$app->params['map_url']?>">
+            <i class="fa fa-map-marker"></i>
+            Адрес
         </a>
     </div>
 
+    <div class="third-part">
+        <div class="third-part-inner">
+            <h2><?=$simpleData['utpMain']?></h2>
+            <h3><?=$simpleData['utpSub']?></h3>
+
+            <a class="ctr-blue ctr-btn nohover" href="<?= Url::toRoute($simpleData['calcUrl']) ?>">
+                Цена Вашего Ремонта
+            </a>
+        </div>
+
+    </div>
 </section>

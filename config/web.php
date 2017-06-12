@@ -55,7 +55,7 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => YII_ENV == 'dev' ? require(__DIR__ . '/devdb.php') : require(__DIR__ . '/db.php'),
 
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -69,8 +69,8 @@ $config = [
                // 'telefon-astana' => 'site/android',
                 //'notebook-astana' => 'site/notebook',
                 //'macbook-astana' => 'site/macbook',
-                'express-astana' => 'site/express',
-                'zamena-stekla' => 'site/display',
+                //'express-astana' => 'site/express',
+                //'zamena-stekla' => 'site/display',
 
                 'calc/' => 'site/calc',
 //                'calc/<category:\w+>/' => 'site/calc',
@@ -85,7 +85,6 @@ $config = [
                 'contact' => 'site/contact',
                 'feedback' => 'site/feedback',
                 'policy' => 'site/policy',
-                'status' => 'site/status',
 
 
 
@@ -98,8 +97,8 @@ $config = [
 
 
                 //sandboxes
-                'insta' => 'site/insta',
-                'google' => 'site/google',
+//                'insta' => 'site/insta',
+//                'google' => 'site/google',
 
                 //dynamic Landing Page group
                 [

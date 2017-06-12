@@ -28,8 +28,39 @@ class SeoRedirect implements UrlRuleInterface
     {
         // TODO: Implement parseRequest() method.
         $pathInfo = $request->getPathInfo();
+        if($pathInfo == 'iphone-astana'){
+            $page = Page::find()->where(['url' => 'iphone'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
         if($pathInfo == 'ipad-astana'){
             $page = Page::find()->where(['url' => 'ipad'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
+        if($pathInfo == 'telefon-astana'){
+            $page = Page::find()->where(['url' => 'telefon'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
+        if($pathInfo == 'notebook-astana'){
+            $page = Page::find()->where(['url' => 'notebook'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
+        if($pathInfo == 'macbook-astana'){
+            $page = Page::find()->where(['url' => 'macbook'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
+        if($pathInfo == 'zamena-stekla'){
+            $page = Page::find()->where(['url' => 'zamena-stekla-iphone'])->one();
+            Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
+            Yii::$app->end();
+        }
+        if($pathInfo == 'status'){
+        	
+            $page = Page::find()->where(['url' => 'home'])->one();
             Yii::$app->getResponse()->redirect(['site/page','page' => $page],301);
             Yii::$app->end();
         }

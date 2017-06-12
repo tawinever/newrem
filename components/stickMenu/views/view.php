@@ -17,7 +17,7 @@ use yii\helpers\Url;
             <img src="/img/logo.png" alt="Remonteka.kz">
             </a>
             <br>
-            <span>
+            <span id="stickUnderLogo">
                 Ремонт телефонов и ноутбуков
             </span>
         </div>

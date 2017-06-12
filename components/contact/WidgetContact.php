@@ -16,7 +16,8 @@ class WidgetContact extends Widget
     public $title = 'Remonteka.kz';
     public function run()
     {
-        parent::run(); 
+        parent::run();
         return $this->render('view',['title' => $this->title]);
+
     }
 }

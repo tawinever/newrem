@@ -24,5 +24,7 @@ return [
         '\app\components\sections\certificateSection\CertificateSection' => 'Блок сертификатов',
         '\app\components\sections\mobile\mainSection\MainSection' => 'Мобильный Главный блок',
         '\app\components\sections\mobile\proSection\ProSection' => 'Мобильный блок преимуществ',
+        '\app\components\sections\priceRepairSection\PriceRepairSection' => 'Блок цены для услуг',
+
     ],
 ];

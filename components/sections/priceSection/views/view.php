@@ -41,27 +41,52 @@
 
         <?foreach ($prices as $device_id => $rowPrices):?>
             <div class="tab-content-container <?if(isset($activeTab) && $activeTab == $device_id) echo 'active';?>" data-device="<?=$device_id?>">
+                	<div class="tab-item">
+                        <div class="tab-item-first">
+                            <span class="name">
+                                Диагностика
+                            </span>
+                            <span class="price">
+                                Бесплатно
+                            </span>
+                            <span class="duration">
+                                15 минут
+                            </span>
+                            <span class="description">
+                                
+                            </span>
+
+                            
+                        </div>
+                        <div class="tab-item-second popup-open trivial" data-order-info="<?= $deviceDictionary[$parent_device_id]->title ?> - <?= $deviceDictionary[$device_id]->title ?> - Диагностика">
+                            <span>
+                                Заказать
+                            </span>
+                        </div>
+                	</div>
                 <?foreach ($rowPrices as $rowPrice) :?>
                     <div class="tab-item">
                         <div class="tab-item-first">
                             <span class="name">
                                 <?= $repairDictionary[$rowPrice['repair_id']]->title ?>
                             </span>
-                            <span class="duration">
-                                <?= explode('|',$rowPrice['info'])[0]  ?>
-
-                            </span>
-
                             <span class="price">
                                 <?= $rowPrice['price'].' тг.' ?>
                             </span>
-                        </div>
-                        <div class="tab-item-second popup-open" data-order-info="<?= $deviceDictionary[$parent_device_id]->title ?> - <?= $deviceDictionary[$device_id]->title ?>" data-info="<?=explode('|',$rowPrice['info'])[0].', '.explode('|',$rowPrice['info'])[1] ?>">
-                            <span>Подробнее</span>
-                            <i class="fa fa-angle-right"></i>
-                        </div>
+                            <span class="duration">
+                                <?= explode('|',$rowPrice['info'])[0]  ?>
+                            </span>
+                            <span class="description">
+                                <?= explode('|',$rowPrice['info'])[1]  ?>
+                            </span>
 
-
+                            
+                        </div>
+                        <div class="tab-item-second popup-open trivial" data-order-info="<?= $deviceDictionary[$parent_device_id]->title ?> - <?= $deviceDictionary[$device_id]->title ?>" data-info="<?=explode('|',$rowPrice['info'])[0].', '.explode('|',$rowPrice['info'])[1] ?>">
+                            <span>
+                                Заказать
+                            </span>
+                        </div>
                     </div>
                 <?endforeach;?>
             </div>

@@ -18,11 +18,11 @@ use yii\helpers\Url;
                 <span class="name">
                     Тип ремонта
                 </span>
-                <span class="duration">
-                    Время ремонта
-                </span>
                 <span class="price">
                     Цена
+                </span>
+                <span class="duration">
+                    Время ремонта
                 </span>
                 <span class="description">
                     Описание
@@ -32,19 +32,41 @@ use yii\helpers\Url;
         </div>
         <?foreach ($prices as $device_id => $rowPrices):?>
             <div class="tab-content-container <?if(isset($activeTab) && $activeTab == $device_id) echo 'active';?>" data-device="<?=$device_id?>">
+                	<div class="tab-item">
+                        <div class="tab-item-first">
+                            <span class="name">
+                            	Диагностика
+                            </span>
+                            <span class="price">
+                            	Бесплатно
+                            </span>
+                            <span class="duration">
+                                15 минут
+                            </span>
+                            <span class="description">
+                            </span>
+                        </div>
+
+                        <div class="tab-item-second popup-open" data-order-info="<?= $deviceDictionary[$deviceDictionary[$parent_device_id]->parent_id]->title ?> - <?= $deviceDictionary[$device_id]->title ?> - Диагностика">
+                            <span>
+                                Заказать
+                            </span>
+                        </div>
+
+
+                    </div>
                 <?foreach ($rowPrices as $rowPrice) :?>
                     <div class="tab-item">
                         <div class="tab-item-first">
                             <span class="name">
                                 <?= $repairDictionary[$rowPrice['repair_id']]->title ?>
                             </span>
+                            <span class="price">
+                                <?= $rowPrice['price'].' тг.' ?>
+                            </span>
                             <span class="duration">
                                 <?= explode('|',$rowPrice['info'])[0]  ?>
 
-                            </span>
-
-                            <span class="price">
-                                <?= $rowPrice['price'].' тг.' ?>
                             </span>
                             <span class="description">
                                 <?= explode('|',$rowPrice['info'])[1]  ?>

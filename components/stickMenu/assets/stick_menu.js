@@ -2,7 +2,8 @@
  * Created by Rauan on 25.06.2016.
  */
 $(window).load(function () {
-    console.log('we ready');
+	$('#stickUnderLogo').text($('.section-main h1').text());
+    console.log('we ready actually');
     var isHidden = true;
     $(window).scroll(function (e) {
         var curPos = $(window).scrollTop();

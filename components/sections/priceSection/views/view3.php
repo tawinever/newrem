@@ -50,6 +50,18 @@ use yii\helpers\Url;
                                 <th width="300px">Время ремонта</th>
                                 <th width="160px"></th>
                             </tr>
+                            	<tr>
+                                    <td><h3>Диагностика</h3></td>
+                                    <? $tmpPrice = null;
+                                    foreach ($tabsAvailableDevices[$tabParentDevice] as $perDevice):?>
+                                    	<td class="popup-open price-cell">Бесплатно</td>    
+                                    <?endforeach;?>
+                                    <td>15 минут</td>
+                                    <td class="table-more popup-open" data-order-info="<?=$deviceDictionary[$parent_device_id]->title?> - <?=$deviceDictionary[$tabParentDevice]->title ?> - Диагностика">
+                                        <span>Подробнее</span>
+                                        <i class="fa fa-angle-right"></i>
+                                    </td>
+                                </tr>
                             <? foreach ($tabsAvailableRepairs[$tabParentDevice] as $perRepair):?>
                                 <tr>
                                     <td><h3><?=$repairDictionary[$perRepair]->title?></h3></td>

@@ -15,6 +15,8 @@ use app\models\Price;
 use app\models\Repair;
 use yii\base\UserException;
 use yii\helpers\ArrayHelper;
+use app\models\Page;
+use yii\base\Widget;
 
 class PriceSection extends PageWidget
 {
@@ -36,6 +38,15 @@ class PriceSection extends PageWidget
     public function init()
     {
         parent::init();
+         if(\Yii::getAlias('@device') == 'mobile') {
+            $pageUrl = $this->page->url;
+            $pageUrl = substr($pageUrl, strlen( \Yii::$app->params['mobilePrefix']));
+            $this->page = Page::find()->where(['url' => $pageUrl])->one();
+            if (is_null($this->page))
+                throw new UserException('You should create page');
+
+            $this->simpleData = ArrayHelper::map($this->getSimpleData(),'key','value');
+        }
 
         $this->repairDictionary = Repair::getRepairDictionary();
         $this->deviceDictionary = Device::getDeviceDictionary();

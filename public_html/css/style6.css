@@ -86,6 +86,7 @@ a {
 
 body {
     font-family: Roboto, sans-serif;
+    min-width: 1170px;
 }
 
 .clear-fix:after {
@@ -427,6 +428,12 @@ div span.gcw_title:hover {
 
 .section-shortread .shortread-item {
     flex-basis:100%;
+}
+
+.section-shortread .text div {
+    font-size: 24px;
+    margin-top: 30px;
+    font-weight: 500;
 }
 
 
@@ -993,6 +1000,7 @@ footer .second {
     justify-content: space-between;
     width: calc(100% - 100px);
     align-items: center;
+    cursor: pointer;
 
 }
 .section-price .tab-content-container .tab-item-second {
@@ -1016,7 +1024,7 @@ footer .second {
 
 
 .section-price .tab-content-container .tab-item .name {
-    width: 50%;
+    width: 36%;
     display: inline-block;
     font-weight: 300;
 
@@ -1066,7 +1074,7 @@ footer .second {
 }
 
 .section-price.trivial .tab-content-container .tab-item .description{
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 300;
     width: 215px;
 }
@@ -1084,7 +1092,7 @@ footer .second {
     padding: 0;
 }
 
-.section-price.trivial .tab-content-container .tab-item-second span{
+.section-price.trivial .tab-content-container .tab-item-second span, .section-price.general .tab-content-container .tab-item-second.trivial span{
     display: inline-block;
     color: #fff;
     background-color: #1BD741;
@@ -1335,6 +1343,7 @@ footer .second {
 .calc-item-container {
     margin: 100px auto;
     text-align: center;
+    max-width:1000px;
 }
 
 .calc-item-container .calc-item {
@@ -1625,8 +1634,12 @@ footer .second {
     max-width: 960px;
     color: #1e3948;
     padding-top: 40px;
-    padding-bottom: 40px;
     margin: 0 auto;
+}
+
+.section-longread + .section-longread {
+	  padding-top: 0;
+	  padding-bottom:40px;
 }
 
 
@@ -1645,17 +1658,18 @@ footer .second {
     font-weight: 300;
 }
 .section-longread ul{
-    list-style-type: decimal;
+    list-style-type: disc;
     text-indent: 0;
     padding-left: 40px;
 
 }
 
-.section-longread span.fw-500{
+.section-longread .fw-500{
     font-weight: 500;
 }
-.section-longread a {
+.section-longread a, .section-shortread a{
     color: #fa7167;
+    cursor:pointer;
 }
 .bg-dark {
     background-color: #1e3948;
@@ -1679,3 +1693,24 @@ footer .second {
 }
 
 /*end section-map*/
+/*binotel*/
+body #bingc-phone-button svg.bingc-phone-button-circle
+circle.bingc-phone-button-circle-inside {
+    fill: #fa7167 !important;
+}
+body #bingc-phone-button:hover svg.bingc-phone-button-circle
+circle.bingc-phone-button-circle-inside {
+    fill: #fa7167 !important;
+}
+body #bingc-phone-button div.bingc-phone-button-tooltip {
+    background: #fa7167 !important;
+}
+body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
+    fill: #fa7167 !important;
+}
+body #bingc-passive > div.bingc-passive-overlay {
+    background: #1e3948 !important;
+}
+body  #bingc-active {
+    background: #1e3948 !important;
+}

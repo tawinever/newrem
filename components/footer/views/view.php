@@ -18,12 +18,12 @@ use yii\helpers\Url; ?>
         </div>
         <div class="col flex-two">
             <span class="title">Наши другие услуги</span>
-            <span><a href="<?= Url::toRoute('site/iphone'); ?>"><h3>Ремонт Айфонов</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/ipad'); ?>"><h3>Ремонт Айпадов</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/android'); ?>"><h3>Ремонт других телефонов</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/notebook'); ?>"><h3>Ремонт ноутбуков</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/macbook'); ?>"><h3>Ремонт Макбуков</h3></a></span>
-            <span><a href="<?= Url::toRoute('site/express'); ?>"><h3>Ремонт на выезд</h3></a></span>
+            <span><a href="<?= Url::to('iphone'); ?>"><h3>Ремонт Айфонов</h3></a></span>
+            <span><a href="<?= Url::to('ipad'); ?>"><h3>Ремонт Айпадов</h3></a></span>
+            <span><a href="<?= Url::to('telefon'); ?>"><h3>Ремонт других телефонов</h3></a></span>
+            <span><a href="<?= Url::to('notebook'); ?>"><h3>Ремонт ноутбуков</h3></a></span>
+            <span><a href="<?= Url::to('macbook'); ?>"><h3>Ремонт Макбуков</h3></a></span>
+            <span><a href="<?= Url::to('express-astana'); ?>"><h3>Ремонт на выезд</h3></a></span>
             <span class="gcw_title gcw_show_modal gcw_status_modal" data-id="gcw_status_modal"><h3>Статус заказа</h3></span>
         </div>
         <div class="col flex-two">

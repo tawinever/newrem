@@ -195,7 +195,12 @@ h2 {
 code {
     color: #fa7167;
 }
-
+.collapse{
+  display:none;
+}
+.collapse.in {
+	display:block;
+}
 /* end General Rules*/
 /*stickmenu rules*/
 .stick-menu {
@@ -270,7 +275,7 @@ code {
 
 .section-main h1 {
     margin: 4px auto 20px;
-    font-size:24px;
+    font-size:18px;
     color: #1e3948;
     text-align: center;
     font-weight: 300;
@@ -307,6 +312,7 @@ code {
 .section-main .third-part {
     text-align: center;
     background-image: url("../img/te.jpg");
+    background-size: cover;
     padding: 50px 10% 30px;
     color: #fff;
 }
@@ -404,12 +410,14 @@ code {
 /*pros section begin*/
 .section-pros {
     color: #1e3948;
-    padding: 30px 15px;
+    padding: 0 15px 30px;
 
 }
 .section-pros .pro-item {
     display: flex;
     align-items: center;
+    position:relative;
+    margin-top:20px;
 }
 
 .section-pros .svg-container {
@@ -420,11 +428,25 @@ code {
 .section-pros .svg-container svg {
     max-width: 100%;
 }
-.section-pros .pro-item-text {
+.section-pros .pro-item-title {
     font-weight: 600;
     font-size: 18px;
     line-height: 1.5;
 
+}
+.section-pros .pro-item-text {
+	padding:15px 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+}
+.section-pros .more-label{
+	font-size: 14px;
+    font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: underline;
 }
 /*pros section end*/
 /*calc page begin*/
@@ -679,7 +701,26 @@ footer .second {
 
 /* begin page thank*/
 .page-thank {
-    margin: 20px 0;
+    margin: 20px 0 0;
+}
+
+.page-thank iframe{
+    margin: 0 !important;
+    border:0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+
+}
+.page-thank h2 {
+    color: #1e3948;
+    font-size: 30px;
+    padding: 0 15px;
+}
+
+.page-thank h3 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 20px;
 }
 
 /*end of page thank*/
@@ -692,60 +733,7 @@ footer .second {
 }
 /* end map section*/
 
-/*begin Section Price*/
-.section-price {
-}
 
-.section-price .wrapper {
-    max-width: 960px;
-    margin: 0 auto;
-    color: #1e3948;
-    padding-bottom: 40px;
-}
-
-.section-price .title {
-    margin: 40px 0;
-}
-
-.section-price table {
-    width: 100%;
-    cursor: pointer;
-}
-
-.section-price table tr:nth-child(2n+1) {
-    background-color: rgba(30, 57, 72, 0.25);;
-}
-
-.section-price table tr:first-child {
-    background-color: #1e3948;
-    color: #fff;
-}
-
-.section-price table td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 10px;
-    -webkit-transition: all 0.3s ease-out 0s;
-    -moz-transition: all 0.3s ease-out 0s;
-    -o-transition: all 0.3s ease-out 0s;
-    transition: all 0.3s ease-out 0s;
-}
-.section-price table td.active{
-    color:white;
-    background-color: rgba(30, 57, 72, 0.62);
-}
-
-.section-price table th {
-    padding: 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.section-price table th:first-child, .section-price table td:first-child, .section-price table th:last-child, .section-price table td:last-child {
-    width: 200px;
-    text-align: left;
-}
-
-/*end Section Price*/
 /*begin feedSection*/
 .section-feed {
     background-color: #1e3948;
@@ -876,6 +864,8 @@ footer .second {
 }
 .contact-container .contact-map{
     margin-top: 40px;
+    max-width: 100%;
+    overflow: hidden;
 }
 .contact-container h3{
     font-size: 24px;
@@ -914,7 +904,6 @@ footer .second {
     max-width: 960px;
     margin: 0 auto;
     color: #1e3948;
-    padding-bottom: 40px;
 }
 
 .section-price .title {
@@ -963,7 +952,6 @@ footer .second {
 
 .section-price .tab-content-container {
     border-top: 1px solid #e6e6e6;
-    margin-bottom: 20px;
     display: none;
 }
 .section-price .tab-content-container.active{
@@ -1205,18 +1193,23 @@ div span.gcw_title:hover {
     display: none !important;
 }
 /*binotel*/
-#bingc-phone-button svg.bingc-phone-button-circle
+body #bingc-phone-button svg.bingc-phone-button-circle
 circle.bingc-phone-button-circle-inside {
     fill: #fa7167 !important;
 }
-#bingc-phone-button:hover svg.bingc-phone-button-circle
+body #bingc-phone-button:hover svg.bingc-phone-button-circle
 circle.bingc-phone-button-circle-inside {
     fill: #fa7167 !important;
 }
-#bingc-phone-button div.bingc-phone-button-tooltip {
+body #bingc-phone-button div.bingc-phone-button-tooltip {
     background: #fa7167 !important;
 }
-#bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow
-polyline {
+body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
     fill: #fa7167 !important;
+}
+body #bingc-passive > div.bingc-passive-overlay {
+    background: #1e3948 !important;
+}
+body  #bingc-active {
+    background: #1e3948 !important;
 }

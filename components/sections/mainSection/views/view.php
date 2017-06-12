@@ -35,7 +35,7 @@ use yii\helpers\Url;
             </a>
             <br>
             <h1>
-                <?=$this->title?>
+            	<?=$simpleData['underLogo'];?>
             </h1>
         </div>
         <div class="info-container right">

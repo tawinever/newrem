@@ -12,3 +12,8 @@ if(isset($simpleData['metaDesc']))
         'name' => 'description',
         'content' => $simpleData['metaDesc'],
     ]);
+if(isset($simpleData['keywords']))
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => $simpleData['keywords'],
+    ]);
